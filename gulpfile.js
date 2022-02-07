@@ -3,6 +3,7 @@ var $ = require("gulp-load-plugins")();
 var autoprefixer = require("autoprefixer");
 var browserSync = require("browser-sync").create();
 var minimist = require("minimist");
+var clone = require("gulp-clone");
 
 var envOptions = {
   sting: "env",
@@ -25,6 +26,19 @@ gulp.task("clean", function () {
       }
     )
     .pipe($.clean());
+});
+
+gulp.task("cloneCss", function () {
+  return gulp
+    .src("./static/css/*.css")
+    .pipe(clone())
+    .pipe(gulp.dest("./public/css"));
+});
+gulp.task("cloneJs", function () {
+  return gulp
+    .src("./static/js/*.js")
+    .pipe(clone())
+    .pipe(gulp.dest("./public/js"));
 });
 
 gulp.task("pug", function () {
@@ -153,6 +167,8 @@ gulp.task(
   gulp.series(
     "clean",
     "vendorJs",
+    "cloneCss",
+    "cloneJs",
     gulp.parallel("pug", "sass", "babel", "image-min"),
     function (done) {
       browserSync.init({
