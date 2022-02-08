@@ -1,0 +1,81 @@
+=rwd($w)
+  @media only screen and (max-width: $w)
+    @content
+=rwd2($w:751px)
+  @media only screen and (min-width: $w)
+    @content
+=rwd3($h:900px)
+  @media only screen and (max-height: $h)
+    @content
+=rwd4($h:900px,$w:1100px)
+  @media only screen and (max-height: $h) and (max-width: $w)
+    @content
+=rwd5($h:900px,$w:900px)
+  @media only screen and (max-height: $h) and (max-width: $w)
+    @content
+
+=minW($w)
+  @media only screen and (min-width: $w)
+    @content
+=rwdh($h:900px)
+  @media only screen and (max-height: $h)
+    @content
+=minH($h:900px)
+  @media only screen and (min-height: $h)
+    @content
+
+=clearfix
+  &:after
+    content: ''
+    display: block
+    clear: both
+
+// =keyframes($name)
+// 	@-webkit-keyframes #{$name}
+// 		@content
+// 	@-moz-keyframes #{$name}
+// 		@content
+// 	@-ms-keyframes #{$name}
+// 		@content
+// 	@keyframes #{$name}
+// 		@content 
+// =animation($content)
+// 	-webkit-animation: $content
+// 	-moz-animation: $content
+// 	-o-animation: $content
+// 	animation: $content
+
+=before($txt:'')
+  &:before
+    content: $txt
+    display: block
+    @content
+
+=after($txt:'')
+  &:after
+    content: $txt
+    display: block
+    @content
+
+=hover($w:768px)
+  @media only screen and (min-width: $w)
+    &:hover
+      @content
+
+=pstc0($t:0,$l:0,$b:0,$r:0)
+  position: absolute
+  top: $t
+  bottom: $b
+  left: $l
+  right: $r
+  margin: auto
+
+=pstc5($t:50%,$l:50%)
+  position: absolute
+  top: $t
+  left: $l
+  transform: translate(-50%,-50%)
+
+=dib
+  display: inline-block
+  vertical-align: middle

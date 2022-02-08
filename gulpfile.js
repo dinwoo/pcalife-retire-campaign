@@ -158,6 +158,8 @@ gulp.task(
   gulp.series(
     "clean",
     "vendorJs",
+    "cloneCss",
+    "cloneJs",
     gulp.parallel("pug", "sass", "babel", "image-min")
   )
 );

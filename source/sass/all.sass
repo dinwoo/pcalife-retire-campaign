@@ -1,89 +1,5 @@
-=rwd($w)
-  @media only screen and (max-width: $w)
-    @content
-=rwd2($w:751px)
-  @media only screen and (min-width: $w)
-    @content
-=rwd3($h:900px)
-  @media only screen and (max-height: $h)
-    @content
-=rwd4($h:900px,$w:1100px)
-  @media only screen and (max-height: $h) and (max-width: $w)
-    @content
-=rwd5($h:900px,$w:900px)
-  @media only screen and (max-height: $h) and (max-width: $w)
-    @content
-
-=minW($w)
-  @media only screen and (min-width: $w)
-    @content
-=rwdh($h:900px)
-  @media only screen and (max-height: $h)
-    @content
-=minH($h:900px)
-  @media only screen and (min-height: $h)
-    @content
-
-=clearfix
-  &:after
-    content: ''
-    display: block
-    clear: both
-
-// =keyframes($name)
-// 	@-webkit-keyframes #{$name}
-// 		@content
-// 	@-moz-keyframes #{$name}
-// 		@content
-// 	@-ms-keyframes #{$name}
-// 		@content
-// 	@keyframes #{$name}
-// 		@content 
-// =animation($content)
-// 	-webkit-animation: $content
-// 	-moz-animation: $content
-// 	-o-animation: $content
-// 	animation: $content
-
-=before($txt:'')
-  &:before
-    content: $txt
-    display: block
-    @content
-
-=after($txt:'')
-  &:after
-    content: $txt
-    display: block
-    @content
-
-=hover($w:768px)
-  @media only screen and (min-width: $w)
-    &:hover
-      @content
-
-=pstc0($t:0,$l:0,$b:0,$r:0)
-  position: absolute
-  top: $t
-  bottom: $b
-  left: $l
-  right: $r
-  margin: auto
-
-=pstc5($t:50%,$l:50%)
-  position: absolute
-  top: $t
-  left: $l
-  transform: translate(-50%,-50%)
-
-=dib
-  display: inline-block
-  vertical-align: middle
-
-$red: #f00
-$yellow: #ffe5a4
-$orange: #EC8A15
-$pink: #fff5ed
+@import ./_base
+@import ./_variable
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap')
 
@@ -135,6 +51,17 @@ html
               background-color: #fff
               &.active
                 background-color: $orange
+      +rwd(768px)
+        .wrapper
+          padding: 30px
+          figure.title
+            // max-width: 1050px
+            width: 90%
+          .box
+            // padding: 15px 0
+            .owl-item
+              &:nth-child(even)
+                padding-top: 0px
     section.section02
       width: 100%
       padding: 80px 0
