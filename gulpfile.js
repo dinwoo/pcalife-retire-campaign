@@ -32,13 +32,26 @@ gulp.task("cloneCss", function () {
   return gulp
     .src("./static/css/*.css")
     .pipe(clone())
-    .pipe(gulp.dest("./public/css"));
+    .pipe(
+      $.if(
+        options.env === "production",
+        gulp.dest("./dist/css"),
+        gulp.dest("./public/css")
+      )
+    );
 });
+
 gulp.task("cloneJs", function () {
   return gulp
     .src("./static/js/*.js")
     .pipe(clone())
-    .pipe(gulp.dest("./public/js"));
+    .pipe(
+      $.if(
+        options.env === "production",
+        gulp.dest("./dist/js"),
+        gulp.dest("./public/js")
+      )
+    );
 });
 
 gulp.task("pug", function () {
