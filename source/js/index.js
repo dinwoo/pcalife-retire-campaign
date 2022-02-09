@@ -48,8 +48,27 @@ function desktopFun() {
   $("#productRightArrow").off("click");
 }
 
+function setSlider(slideEl, inputEl, min = 0, max = 100, v = 0, s = 1) {
+  slideEl.slider({
+    range: "min",
+    min: min,
+    max: max,
+    value: v,
+    step: s,
+    slide: function (event, ui) {
+      inputEl.val(ui.value);
+    },
+  });
+  inputEl.on("change", function () {
+    slideEl.slider("value", $(this).val());
+  });
+}
+
 $(document).ready(function () {
   checkWid($(window).width());
+
+  setSlider($("#test"), $("#amount"));
+  setSlider($("#test2"), $("#amount2"), 200, 500, 300, 10);
 
   $("#carousel-box").owlCarousel({
     nav: false,
