@@ -1,30 +1,21 @@
+let isMobile = $(window).width() > 768;
+
 $(window).resize(function () {
-  let windowsize = $(window).width();
-  console.log(windowsize);
-  let prodcutOwl = $("#product-carousel");
-  if (windowsize < 768) {
-    prodcutOwl.owlCarousel({
-      nav: false,
-      dots: true,
-      responsive: {
-        0: {
-          loop: true,
-          items: 3,
-        },
-      },
-    });
-    $("#productLeftArrow").on("click", () => {
-      prodcutOwl.trigger("prev.owl.carousel");
-    });
-    $("#productRightArrow").on("click", () => {
-      prodcutOwl.trigger("next.owl.carousel");
-    });
-  } else {
-    prodcutOwl.trigger("destroy.owl.carousel");
-  }
+  let windowSize = $(window).width();
+  checkWid(windowSize);
 });
 
-$(document).ready(function () {
+function checkWid(windowSize) {
+  if (windowSize < 768 && !isMobile) {
+    isMobile = true;
+    mobileFun();
+  } else if (windowSize > 768 && isMobile) {
+    isMobile = false;
+    desktopFun();
+  }
+}
+
+function mobileFun() {
   let prodcutOwl = $("#product-carousel");
   prodcutOwl.owlCarousel({
     nav: false,
@@ -49,6 +40,17 @@ $(document).ready(function () {
   $("#productRightArrow").on("click", () => {
     prodcutOwl.trigger("next.owl.carousel");
   });
+}
+
+function desktopFun() {
+  $("#product-carousel").trigger("destroy.owl.carousel");
+  $("#productLeftArrow").off("click");
+  $("#productRightArrow").off("click");
+}
+
+$(document).ready(function () {
+  checkWid($(window).width());
+
   $("#carousel-box").owlCarousel({
     nav: false,
     dots: true,
