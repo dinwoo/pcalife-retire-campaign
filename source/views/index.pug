@@ -12,7 +12,7 @@ block body
       .wrapper
         figure.title
           img(src="./images/section01_title_01.png")
-        .box.owl-carousel#carousel-box
+        .box.owl-carousel#carouselBox01
           figure.pic
             img(src="./images/section01_pic_01.png")
           figure.pic
@@ -21,6 +21,233 @@ block body
             img(src="./images/section01_pic_03.png")
     section.section02
       .wrapper
+        //- figure.title.title1
+          img(src="./images/section02_title_01.png")
+        //- figure.title.title2
+          img(src="./images/section02_title_02.png")
+        //- figure.title.title3
+          img(src="./images/section02_title_03.png")
+        figure.title.title4
+          img(src="./images/section02_title_04.png")
+        .carousel-box.owl-carousel#carouselBox02
+          .container.container1
+            .box
+              figure.pic.pic1
+                img(src="./images/section02_pic_01.png")
+              .info-item
+                .info-title 少子化 + 高齡化
+                .info-slogan
+                  | 「家庭守護者」
+                  br
+                  | 要準備 “全家人的未來”
+                .info-txt
+                  | 根據行政院主計處最新公布人口普查
+                  br
+                  | •台灣65歲老年人口較十年前遽增122.6萬人
+                  br
+                  | •15至64歲工作年齡人口大減16.9萬人，為首次負成長
+              .info-item
+                .info-title F.I.R.E.財務運動
+                .info-slogan 強調「財務自由，提早退休」的人生
+                .info-txt
+                  | 退休不再專屬於老年人
+                  br
+                  | 在人生的中場
+                  br
+                  | 開始規劃美好的下半場
+              .info-item
+                .info-title 渴望掌握人生的主動權
+                .info-txt
+                  | 社會改變、疫情爆發而帶來強烈的
+                  br
+                  | 不確定性、不安及焦慮
+          .container.container2
+            .box
+              .item
+                .left
+                  .info
+                    .info-title 期望退休年齡
+                    .num 60
+                    .unit 歲
+                .right
+                  .list
+                    .bold NO.1
+                    | 61-65歲(31.8%)
+                  .list
+                    .bold NO.2
+                    | 56-60歲(20.3%)
+                  .list
+                    .bold NO.3
+                    | 66歲以後(19.9%)
+              .item
+                .left
+                  .info
+                    .info-title 期望享受退休長度
+                    .num 18.6
+                    .unit 年
+                .right
+                  .list
+                    .bold NO.1
+                    | 20-25年(30.4%)
+                  .list
+                    .bold NO.2
+                    | 15-19年(17.7%)
+                  .list
+                    .bold NO.3
+                    | 30年以上(16.9%)
+              .item
+                .left
+                  .info
+                    .info-title 認為應準備退休總額
+                    .num $1,441
+                    .unit 萬
+                .right
+                  .list
+                    .bold NO.1
+                    | NT$500萬-999萬(27.5%)
+                  .list
+                    .bold NO.2
+                    | NT$1000萬-1499萬(23.0%)
+                  .list
+                    .bold NO.3
+                    | NT$1500萬-1999萬(15.4%)
+              .item
+                .left
+                  .info
+                    .info-title 開始準備退休金年齡
+                    .num 39.2
+                    .unit 歲
+                .right
+                  .list
+                    .bold NO.1
+                    | 40歲(含)以前(67.4%)
+                  .list
+                    .bold NO.2
+                    | 41~50歲(24.1%)
+                  .list
+                    .bold NO.3
+                    | 41~50歲(24.1%)
+          .container.container3
+            .box
+              .table.desktop-table
+                .table-head
+                  .column.column1
+                    | 年份
+                  .column.column2
+                    | 民眾理想中
+                    br
+                    | 退休年齡
+                  .column.column3
+                    | 民眾退休金
+                    br
+                    | 準備工具
+                  .column.column4
+                    | 民眾退休金
+                    br
+                    | 理財態度
+                  .column.column5
+                    | 民眾退休後
+                    br
+                    | 最想做的事情
+                .table-row.red
+                  .column.column1 2020
+                  .column.column2 61~65歲
+                  .column.column3 股票&基金/保險
+                  .column.column4
+                    | 近八成會定期檢視
+                    br
+                    | 調整理財規劃
+                  .column.column5 生活簡樸，衣食無虞
+                .table-row
+                  .column.column1 2019
+                  .column.column2 61~65歲
+                  .column.column3 定存/保險
+                  .column.column4
+                    | 不知退休金
+                    br
+                    | 從何準備起&活在當下
+                  .column.column5 國外旅遊看世界
+                .table-row
+                  .column.column1 2018
+                  .column.column2 51~60歲
+                  .column.column3 保險/定存
+                  .column.column4
+                    | 擔心退休金
+                    br
+                    | 準備不足
+                  .column.column5 國外旅遊看世界
+              .table.mobile-table
+                .table-head
+                  .column
+                    | 年份
+                .table-row
+                  .column.red 2020
+                  .column 2019
+                  .column 2018
+                .table-head
+                  .column
+                    | 民眾理想中退休年齡
+                .table-row
+                  .column.red 61~65歲
+                  .column 61~65歲
+                  .column 51~60歲
+                .table-head
+                  .column
+                    | 民眾退休金準備工具
+                .table-row
+                  .column.red 股票&基金/保險
+                  .column 定存/保險
+                  .column 保險/定存
+                .table-head
+                  .column
+                    | 民眾退休金理財態度
+                .table-row
+                  .column.red 
+                    | 近八成會
+                    br
+                    |定期檢視
+                    br
+                    | 調整理財規劃
+                  .column 
+                    | 不知退休金
+                    br
+                    | 從何準備起
+                    br
+                    | &活在當下
+                  .column 
+                    | 擔心退休金
+                    br
+                    | 準備不足
+                .table-head
+                  .column
+                    | 民眾退休後最想做的事情
+                .table-row
+                  .column.red
+                    | 生活簡樸，
+                    br
+                    | 衣食無虞
+                  .column 國外旅遊看世界
+                  .column 國外旅遊看世界
+          .container.container4
+            .box
+              .pics
+                figure.pic.pic1
+                  img(src="./images/section02_pic_02.png")
+                figure.pic.pic2
+                  img(src="./images/section02_pic_03.png")
+                figure.pic.pic3
+                  img(src="./images/section02_pic_04.png")
+                figure.icon.icon1
+                  img(src="./images/section02_pic_05.png")
+                figure.icon.icon2
+                  img(src="./images/section02_pic_06.png")
+        .nav-bar
+          .arrow-icon.left-arrow#infoLeftArrow
+            include ../images/icons/arrow.pug
+          .now.num#infoNowPage
+          .page.num / 04
+          .arrow-icon.right-arrow#infoRightArrow
+            include ../images/icons/arrow.pug
     section.section03
       .wrapper
         figure.title
@@ -55,10 +282,52 @@ block body
               .txt3 投資風險
     section.section04
       .wrapper
-        #test
-        input#amount(type="text")
-        #test2
-        input#amount2(type="text")
+        .container
+          figure.title
+            img(src="./images/section04_title_01.png")
+          figure.icon
+            img(src="./images/section04_icon_01.png")
+          figure.icon
+            img(src="./images/section04_icon_02.png")
+          .remind 請移動下方橘點，輸入目前的財務狀態，讓我們為您計算出您的理想生活進度
+          .box
+            .row
+              .row-title 目前年紀
+              .row-progress
+                #test
+              .row-unit
+                input#amount.num(type="text")
+                p.txt 歲
+            .row
+              .row-title 目前年紀
+              .row-progress
+                #test2
+              .row-unit
+                input#amount2.num(type="text")
+                p.txt 歲
+          .result-box
+            .result-item
+              figure.pic
+                img(src="./images/section04_pic_01.png")
+              .result-title 退休所需資金
+              .result
+                .num 1,575,123
+                .unit 元
+            .result-item
+              figure.pic
+                img(src="./images/section04_pic_02.png")
+              .result-title 退休金尚需存入
+              .result
+                .num 1,575,123
+                .unit 元
+            .result-item
+              figure.pic
+                img(src="./images/section04_pic_03.png")
+              .result-title 每月建議存入金額
+              .result
+                .num 1,575,123
+                .unit 元
+
     section.section05
       .wrapper
         figure.title
@@ -145,7 +414,12 @@ block body
           .page.num / 07
           p#productRightArrow >
         
-          
+    section.popup
+      .mask
+      .container
+        .close
+        .title 所得替代率
+        p.txt 指退休後平均每月可支配金額與未退休時每月薪資的比例。維持一定的所得替代率，則是退休後每月收入是否能維持生活水準之關鍵。當所得替代率越高，則退休後的生活水準也越高。
 
 
 

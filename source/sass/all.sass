@@ -31,22 +31,56 @@ footer
 .ui-widget.ui-widget-content
   border: none
   background: #D4D1D1
+  height: 16px
+  border-radius: 8px
   .ui-slider-range
     background: #FFD398
+    border-radius: 8px
   .ui-slider-handle
-    width: 0.6em
-    border-radius: 0.3em
-    border-color: #EF9B2C
+    width: 24px
+    height: 45px
+    top: -15px
+    border: none
+    margin-left: -12px
+    border-radius: 12px
     background: #EF9B2C
+    box-shadow: 3px 3px 2px rgba(#a7a6a6,.2)
     outline: none
     cursor: pointer
+  +rwd(768px)
+    height: 12px
+    border-radius: 6px
+    .ui-slider-range
+      border-radius: 6px
+    .ui-slider-handle
+      width: 16px
+      height: 30px
+      top: -10px
+      margin-left: -8px
+      border-radius: 8px
+      box-shadow: 1px 1px 2px rgba(#a7a6a6,.2)
 
+.nav-bar
+  text-align: center
+  .arrow-icon
+    width: 200px
+    fill: #9e9c9c
+    cursor: pointer
+    transition: .3s
+    +dib
+    &.left-arrow
+      transform: rotate(180deg)
+  .now
+    padding: 0 5px
+    +dib
+  .page
+    +dib
 
 html
   font-size: 20px
   article
     section.section01
-      background-color: $yellow
+      background-color: $yellow01
       .wrapper
         max-width: 1580px
         width: 100%
@@ -72,7 +106,7 @@ html
               border-radius: 50%
               background-color: #fff
               &.active
-                background-color: $orange
+                background-color: $orange01
       +rwd(768px)
         .wrapper
           padding: 30px
@@ -84,18 +118,529 @@ html
             .owl-item
               &:nth-child(even)
                 padding-top: 0px
-    section.section02,section.section04
+
+    section.section02
       width: 100%
-      padding: 80px 0
+      padding: 160px 0
       background-image: url(../images/bg01.png)
       background-size: 34px
       background-position: -10px -10px
       .wrapper
-        max-width: 1200px
+        max-width: 1420px
         width: 95%
         margin: auto
+        position: relative
+        figure.title
+          width: 95%
+          position: absolute
+          top: 0
+          left: 0
+          right: 0
+          margin: auto
+          z-index: 2
+          transform: translateY(-80%)
+          &.title1
+            max-width: 693px
+          &.title2
+            max-width: 534px
+          &.title3
+            max-width: 534px
+          &.title3
+            max-width: 944px
+        .carousel-box
+          width: 100%
+          .container
+            width: 100%
+            border-radius: 25px
+            background-color: #fff5ed
+            box-sizing: border-box
+          .container1
+            padding: 50px 20px
+            .box
+              display: flex
+              flex-wrap: wrap
+              justify-content: center
+              align-items: center
+              figure.pic.pic1
+                // width: 670px
+                margin: 0px 15px 30px
+                order: 2
+                flex: 1
+              .info-item
+                .info-title
+                  padding: 0 25px
+                  font-size: 1.1rem
+                  line-height: 2.2rem
+                  border-radius: 1.1rem
+                  color: #fff
+                  display: inline-block
+                .info-slogan
+                  margin: 15px 0
+                  font-size: 1.1rem
+                  // line-height: 2
+                  font-weight: bold
+                  color: #524f4f
+                .info-txt
+                  // display: none
+                  font-size: 0.9rem
+                  line-height: 1.7rem
+                  color: #524f4f
+                &:nth-of-type(1)
+                  padding-top: 30px
+                  order: 1
+                  .info-title
+                    background-color: #ff7b7e
+                  .info-txt
+                    position: absolute
+                &:nth-of-type(2)
+                  padding-top: 90px
+                  order: 3
+                  .info-title
+                    background-color: #b3d466
+                &:nth-of-type(3)
+                  width: 100%
+                  order: 4
+                  text-align: center
+                  .info-title
+                    background-color: #f4a236
+                  .info-txt
+            +rwd(1280px)
+              .box
+                .info-item
+                  &:nth-of-type(3)
+                    margin-top: 50px
+            +rwd(960px)
+              .box
+                align-items: flex-start
+                figure.pic.pic1
+                  max-width: 420px
+                  width: 100%
+                  flex: auto
+                  order: 1
+                .info-item
+                  .info-title
+                  .info-slogan
+                  .info-txt
+                  &:nth-of-type(1)
+                    width: 47%
+                    padding-top: 0
+                    padding-right: 15px
+                    order: 2
+                    box-sizing: border-box
+                    .info-txt
+                      position: static
+                  &:nth-of-type(2)
+                    width: 53%
+                    padding-top: 0
+                    order: 3
+                  &:nth-of-type(3)
+                    margin-top: 0
+                    order: 4
+            +rwd(768px)
+              // padding: 50px 20px
+              .box
+                figure.pic.pic1
+                  // margin: 0px 15px 30px
+                .info-item
+                  .info-title
+                    padding: 0 15px
+                    font-size: 0.9rem
+                    line-height: 1.8rem
+                    border-radius: 0.9rem
+                  .info-slogan
+                    margin: 5px 0
+                    font-size: 0.9rem
+                  .info-txt
+                    font-size: 0.65rem
+                    line-height: 1.3rem
+                  &:nth-of-type(1),&:nth-of-type(2),&:nth-of-type(3)
+                    max-width: 316px
+                    width: 100%
+                    padding: 0
+                    margin: 0 auto 15px
+                    text-align: left
+
+          .container2
+            .box
+              padding: 100px 90px
+              display: flex
+              flex-wrap: wrap
+              .item
+                margin: 60px 0
+                .left
+                  text-align: center
+                  +dib
+                  .info
+                    padding: 30px 0
+                    display: inline-block
+                    background-color: #fff
+                    border-radius: 20px
+                    box-sizing: border-box
+                    text-align: center
+                    position: relative
+                    .info-title
+                      font-size: 1.1rem
+                      line-height: 2rem
+                      border-radius: 1rem
+                      color: #fff
+                      position: absolute
+                      top: 0
+                      left: 50%
+                      transform: translate(-50%,-50%)
+                    .num
+                      font-size: 3.6rem
+                      font-weight: bold
+                      display: inline-block
+                      vertical-align: baseline
+                    .unit
+                      font-size: 1.8rem
+                      display: inline-block
+                      vertical-align: baseline
+                .right
+                  padding-left: 40px
+                  padding-right: 15px
+                  box-sizing: border-box
+                  +dib
+                  .list
+                    font-size: 0.8rem
+                    .bold
+                      padding-right: 5px
+                      font-weight: bold
+                      display: inline
+                &:nth-child(1)
+                  width: 55%
+                  .left
+                    width: 325px
+                    .info
+                      width: 260px
+                      border: 1px solid #e5757d
+                      .info-title
+                        width: 200px
+                        background-color: #e5757d
+                      .num,.unit
+                        color: #e5757d
+                  .right
+                    width: calc(100% - 325px)
+                &:nth-child(2)
+                  width: 45%
+                  .left
+                    width: 280px
+                    .info
+                      width: 280px
+                      border: 1px solid #4e91ca
+                      .info-title
+                        width: 215px
+                        background-color: #4e91ca
+                      .num,.unit
+                        color: #4e91ca
+                  .right
+                    width: calc(100% - 280px)
+                &:nth-child(3)
+                  width: 55%
+                  .left
+                    width: 325px
+                    .info
+                      width: 325px
+                      border: 1px solid #a27bb8
+                      .info-title
+                        width: 236px
+                        background-color: #a27bb8
+                      .num,.unit
+                        color: #a27bb8
+                  .right
+                    width: calc(100% - 325px)
+                &:nth-child(4)
+                  width: 45%
+                  .left
+                    width: 280px
+                    .info
+                      width: 280px
+                      border: 1px solid #64955f
+                      .info-title
+                        width: 233px
+                        background-color: #64955f
+                      .num,.unit
+                        color: #64955f
+                  .right
+                    width: calc(100% - 280px)
+            +rwd(1280px)
+              .box
+                padding: 100px 30px
+                .item
+                  .right
+                    padding-left: 20px
+            +rwd(1080px)
+              .box
+                .item
+                  margin: 15px 0
+                  .left
+                    display: block
+                  .right
+                    margin-top: 15px
+                    display: block
+                  &:nth-child(1)
+                    .left
+                      width: 100%
+                    .right
+                      width: 100%
+                      padding-left: 50px
+                  &:nth-child(2),&:nth-child(3),&:nth-child(4)
+                    .left,.right
+                      width: 100%
+            +rwd(768px)
+              .box
+                padding: 30px 15px
+                .item
+                  .left
+                    .info
+                      padding: 20px 0 10px
+                      border-radius: 10px
+                      .info-title
+                        font-size: 1rem
+                        line-height: 1.6rem
+                        border-radius: 0.8rem
+                      .num
+                        font-size: 3rem
+                      .unit
+                        font-size: 1.4rem
+                  .right
+                    margin-top: 5px
+                    .list
+                      font-size: 0.7rem
+                      .bold
+                  &:nth-child(1)
+                    width: 100%
+                    .left
+                      .info
+                        width: 200px
+                        .info-title
+                          width: 160px
+                    .right
+                      width: 150px
+                      padding: 0
+                      margin: 10px auto
+                  &:nth-child(2)
+                    width: 100%
+                    .left
+                      .info
+                        width: 235px
+                        .info-title
+                          width: 195px
+                    .right
+                      width: 150px
+                      padding: 0
+                      margin: 10px auto
+                  &:nth-child(3)
+                    width: 100%
+                    .left
+                      .info
+                        width: 255px
+                        .info-title
+                          width: 216px
+                    .right
+                      width: 210px
+                      padding: 0
+                      margin: 10px auto
+                  &:nth-child(4)
+                    width: 100%
+                    .left
+                      .info
+                        width: 235px
+                        .info-title
+                          width: 213px
+                    .right
+                      width: 170px
+                      padding: 0
+                      margin: 10px auto
+          .container3
+            .box
+              max-width: 1200px
+              width: 90%
+              padding: 130px 0
+              margin: auto
+              .table
+                background-color: #fff
+                border-bottom-left-radius: 40px
+                border-bottom-right-radius: 40px
+                &.mobile-table
+                  display: none
+                .table-head,.table-row
+                  display: flex
+                  align-items: center
+                .table-head
+                  padding: 10px 0
+                  color: #fff
+                  background-color: #d9adb0
+                  position: relative
+                  +before
+                    width: calc(1.3rem + 10px)
+                    height: 100%
+                    border-top-left-radius: calc(1.3rem + 10px)
+                    border-bottom-left-radius: calc(1.3rem + 10px)
+                    background-color: #d9adb0
+                    position: absolute
+                    left: 0
+                    top: 0
+                    transform: translateX(-100%)
+                  +after
+                    width: calc(1.3rem + 10px)
+                    height: 100%
+                    border-top-right-radius: calc(1.3rem + 10px)
+                    border-bottom-right-radius: calc(1.3rem + 10px)
+                    background-color: #d9adb0
+                    position: absolute
+                    right: 0
+                    top: 0
+                    transform: translateX(100%)
+                .table-row
+                  padding: 30px 0
+                  color: #9b7e80
+                  & + .table-row
+                    position: relative
+                    +before
+                      width: 95%
+                      border-top: 1px dashed #cbc6c6
+                      position: absolute
+                      top: 0
+                      left: 0
+                      right: 0
+                      margin: auto
+                .red
+                  color: #e5757d
+                .column
+                  flex: 1
+                  padding: 0 5px
+                  text-align: center
+                  font-size: 1.1rem
+                  line-height: 1.3rem
+                  &.column1
+                    flex: 3
+                  &.column2
+                    flex: 4
+                  &.column3
+                    flex: 4
+                  &.column4
+                    flex: 5
+                  &.column5
+                    flex: 5
+            +rwd(768px)
+              .box
+                width: 90%
+                padding: 30px 0
+                .table
+                  border-bottom-left-radius: 20px
+                  border-bottom-right-radius: 20px
+                  &.desktop-table
+                    display: none
+                  &.mobile-table
+                    display: block
+                  .table-head
+                    // padding: 10px 0
+                    &:before
+                      width: calc(0.8rem + 10px)
+                      border-top-left-radius: calc(0.8rem + 10px)
+                      border-bottom-left-radius: calc(0.8rem + 10px)
+                      transform: translateX(-55%)
+                    &:after
+                      width: calc(0.8rem + 10px)
+                      border-top-right-radius: calc(0.8rem + 10px)
+                      border-bottom-right-radius: calc(0.8rem + 10px)
+                      transform: translateX(55%)
+                  .table-row
+                    padding: 0
+                    .column
+                      padding: 20px 2px
+                  .column
+                    font-size: 0.7rem
+                    line-height: 0.8rem
+                    & + .column
+                      border-left: 1px dashed #cbc6c6
+          .container4
+            padding-top: 40px
+            .box
+              max-width: 1260px
+              width: 95%
+              margin: auto
+              .pics
+                padding-bottom: 58.1746%
+                position: relative
+                figure
+                  position: absolute
+                figure.pic1
+                  width: 50.238095%
+                  left: 0
+                  top: 0.8%
+                figure.pic2
+                  width: 38.253968%
+                  right: 0
+                  top: 0
+                figure.pic3
+                  width: 40.634920%
+                  bottom: 0
+                  left: 34.682539%
+                figure.icon1
+                  width: 06.507936%
+                  top: 0
+                  left: -01.984126%
+                figure.icon2
+                  width: 07.619047%
+                  top: 41%
+                  right: 1%
+            +rwd(768px)
+              padding-top: 20px
+              .box
+                width: 95%
+                .pics
+                  padding-bottom: 135.6%
+                  figure.pic1
+                    width: 76.097560%
+                    left: 1%
+                    top: 0
+                  figure.pic2
+                    width: 64%
+                    right: 0
+                    top: 34%
+                  figure.pic3
+                    width: 61%
+                    bottom: 0
+                    left: 0
+                  figure.icon1
+                    top: 4%
+                    left: 1%
+                  figure.icon2
+                    top: 68%
+                    right: 3%
+
+      +rwd(768px)
+        // padding: 160px 0
+        background-size: 20px
+        .wrapper
+          width: 100%
+          figure.title
+            width: 95%
+            // transform: translateY(-80%)
+            &.title1
+              // max-width: 693px
+            &.title2
+              // max-width: 534px
+            &.title3
+              // max-width: 534px
+            &.title3
+              // max-width: 944px
+          .carousel-box
+            .container
+              border-radius: 0px
+        .nav-bar
+          .arrow-icon
+            +hover
+              fill: $orange04
+          .now
+            color: $orange04
+          .page
+            color: $orange04
+
     section.section03
-      background-color: $pink
+      background-color: $red02
       .wrapper
         width: 100%
         margin: auto
@@ -279,6 +824,269 @@ html
                   figure.pic
                     width: 45px
                     transform: translate(0%,-50%)
+
+    section.section04
+      width: 100%
+      padding: 80px 0
+      background-image: url(../images/bg01.png)
+      background-size: 34px
+      background-position: -10px -10px
+      .wrapper
+        max-width: 1740px
+        width: 95%
+        margin: auto
+        position: relative
+        z-index: 1
+        .container
+          width: 100%
+          padding: 0 160px
+          background-color: #fff
+          border: 2px solid $orange02
+          border-radius: 80px
+          box-sizing: border-box
+          position: relative
+          +before
+            width: 100%
+            height: 100%
+            background-color: $orange03
+            border: 2px solid $orange02
+            border-radius: 80px
+            position: absolute
+            top: 8px
+            left: 8px
+            z-index: -1
+          figure.title
+            max-width: 624px
+            width: 95%
+            margin: auto
+            transform: translateY(-40%)
+          figure.icon
+            &:nth-child(2)
+              width: 77px
+              position: absolute
+              top: 0
+              left: 10%
+              transform: translateY(-50%)
+            &:nth-child(3)
+              width: 99px
+              position: absolute
+              top: 0
+              right: 6%
+              transform: translateY(-30%)
+          .remind
+            font-size: 1.4rem
+            color: #5e5a5a
+            text-align: center
+          .box
+            width: 100%
+            padding: 20px
+            border-bottom: 1px solid #ffc476
+            box-sizing: border-box
+            .row
+              margin: 2rem 0
+              display: flex
+              align-items: center
+              .row-title
+                width: 355px
+                font-size: 1.3rem
+                color: #584e4e
+              .row-progress
+                flex: 1
+              .row-unit
+                padding-left: 50px
+                input.num
+                  width: 100px
+                  font-size: 1.3rem
+                  color: $red01
+                  line-height: 2.3rem
+                  border-radius: 1.15rem
+                  border: 1px solid #d4d1d1
+                  text-align: center
+                  +dib
+                p.txt
+                  padding-left: 20px
+                  font-size: 1.3rem
+                  color: #584e4e
+                  +dib
+          .result-box
+            padding: 40px 0
+            display: flex
+            justify-content: center
+            .result-item
+              width: 345px
+              margin: 100px 50px 20px
+              border-radius: 40px
+              position: relative
+              figure.pic
+                position: absolute
+                left: 0
+                right: 0
+                top: 0
+                margin: auto
+                transform: translateY(-60%)
+              .result-title
+                padding: 70px 0 20px
+                font-size: 1.5rem
+                text-align: center
+                border-top-left-radius: 38px
+                border-top-right-radius: 38px
+              .result
+                padding: 20px 0
+                padding-right: 60px
+                color: $red01
+                position: relative
+                .num
+                  font-size: 2.4rem
+                  font-weight: bold
+                  text-align: center
+                .unit
+                  font-size: 1.5rem
+                  position: absolute
+                  right: 20px
+                  top: 50%
+                  transform: translateY(-50%)
+              &:nth-child(1)
+                border: 2px solid #f0c761
+                figure.pic
+                  width: 168px
+                .result-title
+                  color: #78590b
+                  background-color: #f9d271
+              &:nth-child(2)
+                border: 2px solid #9fd05f
+                figure.pic
+                  width: 146px
+                .result-title
+                  color: #365d03
+                  background-color: #bae582
+              &:nth-child(3)
+                border: 2px solid #fcb3bc
+                figure.pic
+                  width: 171px
+                .result-title
+                  color: #7b281b
+                  background-color: #fcc7ce
+      +rwd(1460px)
+        .wrapper
+          .container
+            padding: 0 60px
+      +rwd(1280px)
+        .wrapper
+          .container
+            padding: 0 20px
+            &:before
+            figure.title
+            figure.icon
+              &:nth-child(2)
+              &:nth-child(3)
+            .remind
+            .box
+              .row
+                .row-title
+                .row-progress
+                .row-unit
+                  input.num
+                  p.txt
+            .result-box
+              flex-wrap: wrap
+              .result-item
+                margin: 100px 20px 20px
+                figure.pic
+                .result-title
+                .result
+                  .num
+                  .unit
+                &:nth-child(1)
+                  figure.pic
+                &:nth-child(2)
+                  figure.pic
+                &:nth-child(3)
+                  figure.pic
+      +rwd(768px)
+        // padding: 80px 0
+        background-size: 20px
+        // background-position: -10px -10px
+        .wrapper
+          .container
+            // padding: 0 160px
+            border-radius: 30px
+            &:before
+              border-radius: 30px
+              top: 4px
+              left: 4px
+            figure.title
+            figure.icon
+              &:nth-child(2)
+                width: 30px
+                top: -50px
+                left: 2%
+                // transform: translateY(-50%)
+              &:nth-child(3)
+                width: 40px
+                top: 120px
+                right: -2%
+                // transform: translateY(-30%)
+            .remind
+              font-size: 0.8rem
+            .box
+              // padding: 20px
+              .row
+                flex-wrap: wrap
+                .row-title
+                  width: 100%
+                  font-size: 1.1rem
+                  order: 1
+                  text-align: center
+                .row-progress
+                  width: 100%
+                  flex: auto
+                  order: 3
+                .row-unit
+                  width: 100%
+                  margin: 1rem 0
+                  padding-left: 0px
+                  order: 2
+                  text-align: center
+                  input.num
+                    // width: 100px
+                    font-size: 1.1rem
+                    line-height: 2rem
+                    border-radius: 1rem
+                  p.txt
+                    padding-left: 10px
+                    font-size: 1.1rem
+            .result-box
+              padding: 20px 0
+              // display: flex
+              .result-item
+                // width: 345px
+                margin: 60px 20px 20px
+                border-radius: 30px
+                figure.pic
+                  // transform: translateY(-60%)
+                .result-title
+                  padding: 50px 0 10px
+                  font-size: 1.1rem
+                  border-top-left-radius: 28px
+                  border-top-right-radius: 28px
+                .result
+                  padding: 10px 0
+                  padding-right: 40px
+                  .num
+                    font-size: 1.8rem
+                  .unit
+                    font-size: 1.1rem
+                    right: 10px
+                &:nth-child(1)
+                  figure.pic
+                    width: 100px
+                &:nth-child(2)
+                  figure.pic
+                    width: 88px
+                &:nth-child(3)
+                  figure.pic
+                    width: 103px
+
     section.section05
       width: 100%
       padding: 15px 0
@@ -296,9 +1104,9 @@ html
           width: 100%
           padding: 0 65px 50px
           margin: 70px auto
-          border: 2px dotted $green
+          border: 2px dotted $green01
           font-size: 1.4rem
-          color: $gray
+          color: $gray01
           font-weight: bold
           background-color: #fff
           border-radius: 1.5rem
@@ -404,6 +1212,7 @@ html
               font-size: 1rem
               line-height: 2rem
               border-radius: calc(1rem + 2px)
+
     section.section06
       padding-bottom: 30px
       .wrapper
@@ -446,13 +1255,58 @@ html
               width: 100%
               margin: 10px 0
         .nav-bar
-          text-align: center
-          p
-            cursor: pointer
-            +dib
+          .arrow-icon
+            +hover
+              fill: $green02
           .now
             color: $green02
-            +dib
           .page
             color: $green02
-            +dib
+
+    section.popup
+      display: none
+      width: 100vw
+      height: 100vh
+      position: fixed
+      top: 0
+      left: 0
+      z-index: 100
+      .mask
+        width: 100%
+        height: 100%
+        background-color: rgba(#949494,.5)
+      .container
+        max-width: 1200px
+        width: 90%
+        padding: 150px 100px
+        border-radius: 40px
+        background-color: #fff
+        box-sizing: border-box
+        +pstc5
+        .close
+          width: 40px
+          height: 40px
+          position: absolute
+          top: 40px
+          right: 40px
+          transform: rotate(45deg)
+          cursor: pointer
+          &:before,&:after
+            content: ''
+            display: block
+            background-color: #ec7375
+            +pstc0
+          &:before
+            width: 1px
+            height: 100%
+          &:after
+            width: 100%
+            height: 1px
+        .title
+          margin-bottom: 40px
+          font-size: 1.4rem
+          color: #ec7375
+        p.txt
+          font-size: 1.1rem
+          line-height: 1.5
+          color: #5e5a5a

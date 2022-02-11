@@ -70,7 +70,7 @@ $(document).ready(function () {
   setSlider($("#test"), $("#amount"));
   setSlider($("#test2"), $("#amount2"), 200, 500, 300, 10);
 
-  $("#carousel-box").owlCarousel({
+  $("#carouselBox01").owlCarousel({
     nav: false,
     dots: true,
     responsive: {
@@ -87,5 +87,28 @@ $(document).ready(function () {
         margin: 100,
       },
     },
+  });
+
+  let infoOwl = $("#carouselBox02").owlCarousel({
+    nav: false,
+    dots: true,
+    loop: true,
+    items: 1,
+    center: true,
+    autoHeight: true,
+    margin: 70,
+    onChanged: (event) => {
+      if (event.page.index < 0) {
+        $("#infoNowPage").text(`01`);
+      } else {
+        $("#infoNowPage").text(`0${event.page.index + 1}`);
+      }
+    },
+  });
+  $("#infoLeftArrow").on("click", () => {
+    infoOwl.trigger("prev.owl.carousel");
+  });
+  $("#infoRightArrow").on("click", () => {
+    infoOwl.trigger("next.owl.carousel");
   });
 });
