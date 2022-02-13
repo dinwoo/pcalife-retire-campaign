@@ -198,15 +198,26 @@ function mobileFun() {
     dots: true,
     responsive: {
       0: {
-        loop: true,
+        loop: false,
         items: 1,
       },
+    },
+    onInitialize: (event) => {
+      $("#productLeftArrow").addClass("disabled");
     },
     onChanged: (event) => {
       if (event.page.index < 0) {
         $("#productNowPage").text(`01`);
       } else {
         $("#productNowPage").text(`0${event.page.index + 1}`);
+      }
+      if (event.page.index <= 0) {
+        $("#productLeftArrow").addClass("disabled");
+      } else if (event.page.index == 6) {
+        $("#productRightArrow").addClass("disabled");
+      } else {
+        $("#productLeftArrow").removeClass("disabled");
+        $("#productRightArrow").removeClass("disabled");
       }
     },
   });
@@ -248,7 +259,7 @@ function setCarousel() {
   let infoOwl = $("#carouselBox02").owlCarousel({
     nav: false,
     dots: true,
-    loop: true,
+    loop: false,
     items: 1,
     center: true,
     autoHeight: true,
@@ -256,6 +267,7 @@ function setCarousel() {
     onInitialize: (event) => {
       $(`.section02 .title1`).fadeIn();
       $("#infoNowPage").text(`01`);
+      $("#infoLeftArrow").addClass("disabled");
     },
     onChanged: (event) => {
       console.log(event.page.index);
@@ -263,6 +275,14 @@ function setCarousel() {
         $("#infoNowPage").text(`0${event.page.index + 1}`);
         $(".section02 .title").fadeOut();
         $(`.section02 .title${event.page.index + 1}`).fadeIn();
+      }
+      if (event.page.index <= 0) {
+        $("#infoLeftArrow").addClass("disabled");
+      } else if (event.page.index == 3) {
+        $("#infoRightArrow").addClass("disabled");
+      } else {
+        $("#infoLeftArrow").removeClass("disabled");
+        $("#infoRightArrow").removeClass("disabled");
       }
     },
   });

@@ -113,9 +113,11 @@ footer
   .arrow-icon
     width: 40px
     padding: 10px 10px 0
-    fill: #9e9c9c
     cursor: pointer
     transition: .3s
+    &.disabled
+      fill: #9e9c9c !important
+      pointer-events: none
   .now
     font-size: 1.7rem
   .page
@@ -140,6 +142,7 @@ html
   article
     section.banner
       position: relative
+      overflow: hidden
       .indoor
         // opacity: 0
         position: relative
@@ -350,7 +353,6 @@ html
         position: relative
         figure.title
           display: none
-          width: 95%
           position: absolute
           top: 0
           left: 0
@@ -359,13 +361,17 @@ html
           z-index: 2
           transform: translateY(-80%)
           &.title1
-            max-width: 693px
+            max-width: 593px
+            width: 65%
           &.title2
             max-width: 534px
+            width: 60%
           &.title3
             max-width: 534px
-          &.title3
+            width: 60%
+          &.title4
             max-width: 944px
+            width: 95%
         .carousel-box
           width: 100%
           .container
@@ -832,8 +838,7 @@ html
 
         .nav-bar
           .arrow-icon
-            +hover
-              fill: $orange04
+            fill: $orange04
           .now
             color: $orange04
           .page,.num
@@ -1259,14 +1264,18 @@ html
             .remind
               font-size: 0.8rem
             .box
-              // padding: 20px
+              padding: 10px 20px
               .row
                 flex-wrap: wrap
                 .row-title
                   width: 100%
-                  font-size: 1.1rem
                   order: 1
                   text-align: center
+                  .txt
+                    font-size: 1.1rem
+                    figure.question
+                      width: 20px
+                      padding-top: 14px
                 .row-progress
                   width: 100%
                   flex: auto
@@ -1328,7 +1337,7 @@ html
         margin: auto
         figure.title
           max-width: 506px
-          width: 90%
+          width: 80%
           margin: auto
         .form-box
           width: 100%
@@ -1412,6 +1421,7 @@ html
             figure.sub-title
               width: 70%
             .remind
+              font-size: 0.8rem
               margin-bottom: 15px
               br
                 display: block
@@ -1454,7 +1464,7 @@ html
         box-sizing: border-box
         figure.title
           max-width: 343px
-          width: 90%
+          width: 70%
           margin: auto
           transform: translateY(-40%)
         .remind
@@ -1487,15 +1497,34 @@ html
               margin: 10px 0
         .nav-bar
           display: none
-          +rwd(768px)
-            display: flex
           .arrow-icon
-            +hover
-              fill: $green02
+            fill: $green02
           .now
             color: $green02
           .page,.num
             color: $green02
+      +rwd(768px)
+        // padding-bottom: 30px
+        .wrapper
+          // padding: 0 15px
+          figure.title
+          .remind
+            font-size: 0.8rem
+          .box
+            .item
+              padding-top: 30px
+              p.txt
+                // padding: 0 20px
+                font-weight: 1rem
+                line-height: 2rem
+                border-radius: 1rem
+              figure.pic
+                // margin: 10px 0
+          .nav-bar
+            display: flex
+            .arrow-icon
+            .now
+            .page,.num
 
     section.popup
       display: none
@@ -1544,3 +1573,19 @@ html
           font-size: 1.1rem
           line-height: 1.5
           color: #5e5a5a
+      +rwd(768px)
+        .mask
+        .container
+          padding: 60px 30px
+          border-radius: 20px
+          .close
+            width: 30px
+            height: 30px
+            position: absolute
+            top: 30px
+            right: 30px
+          .title
+            margin-bottom: 20px
+            font-size: 1.2rem
+          p.txt
+            font-size: 1rem
