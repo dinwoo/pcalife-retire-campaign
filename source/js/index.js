@@ -1,4 +1,5 @@
 let isMobile = $(window).width() > 768;
+let controller = new ScrollMagic.Controller();
 
 //-- range slider part
 let rangeInput = document.querySelectorAll(".amount-input");
@@ -252,11 +253,16 @@ function setCarousel() {
     center: true,
     autoHeight: true,
     margin: 70,
+    onInitialize: (event) => {
+      $(`.section02 .title1`).fadeIn();
+      $("#infoNowPage").text(`01`);
+    },
     onChanged: (event) => {
-      if (event.page.index < 0) {
-        $("#infoNowPage").text(`01`);
-      } else {
+      console.log(event.page.index);
+      if (event.page.index >= 0) {
         $("#infoNowPage").text(`0${event.page.index + 1}`);
+        $(".section02 .title").fadeOut();
+        $(`.section02 .title${event.page.index + 1}`).fadeIn();
       }
     },
   });
@@ -298,9 +304,226 @@ function setSlider(
   });
 }
 
+function setAnimate() {
+  TweenMax.set(
+    ".banner .banner-title,.section01 .title,.section01 .pic,.section02 .title img,.section02 .container,.section03 .title img,.section03 .animate-item,.section04 .wrapper,.section05 .title img,.section05 .form-box,.section06 .title img,.section06 .remind,.section06 .box .item",
+    {
+      opacity: 0,
+      y: 50,
+    }
+  );
+  TweenMax.set(".banner .banner-slogan,.banner .dog-box", {
+    opacity: 0,
+  });
+  TweenMax.set(".banner .dadnmom", {
+    opacity: 0,
+    x: -100,
+  });
+  TweenMax.set(".banner .papamama", {
+    opacity: 0,
+    x: 100,
+  });
+
+  // 進場動畫
+  doAnimate(
+    new TimelineMax()
+      .add(
+        TweenMax.to(".banner .banner-title", 0.6, {
+          opacity: 1,
+          y: 0,
+        })
+      )
+      .add(
+        TweenMax.to(".banner .dadnmom", 0.6, {
+          opacity: 1,
+          x: 0,
+        })
+      )
+      .add(
+        TweenMax.to(".banner .papamama", 0.6, {
+          opacity: 1,
+          x: 0,
+          delay: -0.6,
+        })
+      )
+      .add(
+        TweenMax.to(".banner .banner-slogan", 1, {
+          opacity: 1,
+        })
+      )
+      .add(
+        TweenMax.to(".banner .dog-box", 0.6, {
+          opacity: 1,
+          delay: 0.1,
+        })
+      ),
+    {
+      triggerElement: ".banner",
+      offset: 0, //指標位移
+      reverse: false, //動畫重複 default:true
+    },
+    "banner"
+  );
+  doAnimate(
+    new TimelineMax()
+      .add(
+        TweenMax.to(".section01 .title", 0.6, {
+          opacity: 1,
+          y: 0,
+        })
+      )
+      .add(
+        TweenMax.staggerTo(
+          ".section01 .pic",
+          0.6,
+          {
+            opacity: 1,
+            y: 0,
+          },
+          0.1
+        )
+      ),
+    {
+      triggerElement: ".section01",
+      offset: 0, //指標位移
+      reverse: false, //動畫重複 default:true
+    },
+    "section01"
+  );
+  doAnimate(
+    new TimelineMax()
+      .add(
+        TweenMax.to(".section02 .title img", 0.6, {
+          opacity: 1,
+          y: 0,
+        })
+      )
+      .add(
+        TweenMax.staggerTo(
+          ".section02 .container",
+          0.6,
+          {
+            opacity: 1,
+            y: 0,
+          },
+          0.1
+        )
+      ),
+    {
+      triggerElement: ".section02",
+      offset: 0, //指標位移
+      reverse: false, //動畫重複 default:true
+    },
+    "section02"
+  );
+  doAnimate(
+    new TimelineMax()
+      .add(
+        TweenMax.to(".section03 .title img", 0.6, {
+          opacity: 1,
+          y: 0,
+        })
+      )
+      .add(
+        TweenMax.staggerTo(
+          ".section03 .animate-item",
+          0.6,
+          {
+            opacity: 1,
+            y: 0,
+          },
+          0.1
+        )
+      ),
+    {
+      triggerElement: ".section03",
+      offset: 0, //指標位移
+      reverse: false, //動畫重複 default:true
+    },
+    "section03"
+  );
+  doAnimate(
+    new TimelineMax().add(
+      TweenMax.to(".section04 .wrapper", 0.6, {
+        opacity: 1,
+        y: 0,
+      })
+    ),
+    {
+      triggerElement: ".section04",
+      offset: 0, //指標位移
+      reverse: false, //動畫重複 default:true
+    },
+    "section04"
+  );
+  doAnimate(
+    new TimelineMax()
+      .add(
+        TweenMax.to(".section05 .title img", 0.6, {
+          opacity: 1,
+          y: 0,
+        })
+      )
+      .add(
+        TweenMax.to(".section05 .form-box", 0.6, {
+          opacity: 1,
+          y: 0,
+        })
+      ),
+    {
+      triggerElement: ".section05",
+      offset: 0, //指標位移
+      reverse: false, //動畫重複 default:true
+    },
+    "section05"
+  );
+  doAnimate(
+    new TimelineMax()
+      .add(
+        TweenMax.to(".section06 .title img", 0.6, {
+          opacity: 1,
+          y: 0,
+        })
+      )
+      .add(
+        TweenMax.to(".section06 .remind", 0.6, {
+          opacity: 1,
+          y: 0,
+        })
+      )
+      .add(
+        TweenMax.staggerTo(
+          ".section06 .box .item",
+          0.6,
+          {
+            opacity: 1,
+            y: 0,
+          },
+          0.1
+        )
+      ),
+    {
+      triggerElement: ".section06",
+      offset: 0, //指標位移
+      reverse: false, //動畫重複 default:true
+    },
+    "section06"
+  );
+}
+
+function doAnimate(tween, Scene, indicator) {
+  return (
+    new ScrollMagic.Scene(Scene)
+      .setTween(tween)
+      // .addIndicators({ name: indicator }) // 指標顯示
+      .addTo(controller)
+  );
+}
+
 $(document).ready(function () {
   checkWid($(window).width());
   setCarousel();
+  setAnimate();
 
   setSlider("currentAge", 18, 74, 35, 1, (val) => {
     $(`#amount-currentAge`).val(val);
