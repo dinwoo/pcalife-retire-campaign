@@ -343,71 +343,71 @@ block body
               .row-title
                 span.txt 目前年紀
               .row-progress
-                #progressbar1
+                #progress-currentAge
               .row-unit
-                input#amount1.num(type="number",value="35",min="18",max="74")
+                input.amount-input#amount-currentAge.num(type="number",value="35",min="18",max="74")
                 p.txt 歲
             .row
               .row-title
                 span.txt 期望退休年紀
               .row-progress
-                #progressbar2
+                #progress-retireAge
               .row-unit
-                input#amount2.num(type="number",value="65",min="50",max="75")
+                input.amount-input#amount-retireAge.num(type="number",value="65",min="50",max="75")
                 p.txt 歲
             .row
               .row-title
                 span.txt 期望壽命
               .row-progress
-                #progressbar3
+                #progress-lifeSpan
               .row-unit
-                input#amount3.num(type="number",value="75",min="66",max="99")
+                input.amount-input#amount-lifeSpan.num(type="number",value="75",min="66",max="99")
                 p.txt 歲
             .row
               .row-title
                 span.txt 目前存款餘額+目前投資金額
               .row-progress
-                #progressbar4
+                #progress-totalAssets
               .row-unit
-                input#amount4.num(type="number",value="50",min="0",max="3000")
+                input.amount-input#amount-totalAssets.num(type="number",value="50",min="0",max="3000")
                 p.txt 萬
             .row
               .row-title
                 span.txt 目前每月收入
               .row-progress
-                #progressbar5
+                #progress-salary
               .row-unit
-                input#amount5.num(type="number",value="4.6",min="2.3",max="30")
+                input.amount-input#amount-salary.num(type="number",value="4.6",min="2.3",max="30")
                 p.txt 萬
             .row
               .row-title
                 span.txt
                   | 期望所得替代率
-                  figure.question
+                  figure.question#popupHandler1
                     img(src="./images/question.png")
               .row-progress
-                #progressbar6
+                #progress-incomeReplacementRatio
               .row-unit
-                input#amount6.num(type="number",value="70",min="10",max="100")
+                input.amount-input#amount-incomeReplacementRatio.num(type="number",value="70",min="10",max="100")
                 p.txt ％
             .row
               .row-title
                 span.txt
                   | 預期通膨率
-                  figure.question
+                  figure.question#popupHandler2
                     img(src="./images/question.png")
               .row-progress
-                #progressbar7
+                #progress-inflation
               .row-unit
-                input#amount7.num(type="number",value="5",min="0",max="5")
+                input.amount-input#amount-inflation.num(type="number",value="5",min="0",max="5")
                 p.txt ％
             .row
               .row-title
                 span.txt 預期平均每年投資報酬率
               .row-progress
-                #progressbar8
+                #progress-totalInvest
               .row-unit
-                input#amount8.num(type="number",value="2",min="0",max="10")
+                input.amount-input#amount-totalInvest.num(type="number",value="2",min="0",max="10")
                 p.txt ％
           .result-box
             .result-item
@@ -415,21 +415,21 @@ block body
                 img(src="./images/section04_pic_01.png")
               .result-title 退休所需資金
               .result
-                .num 1,575,123
+                .num#requiredAmount 1,575,123
                 .unit 元
             .result-item
               figure.pic
                 img(src="./images/section04_pic_02.png")
               .result-title 退休金尚需存入
               .result
-                .num 1,575,123
+                .num#shortage 1,575,123
                 .unit 元
             .result-item
               figure.pic
                 img(src="./images/section04_pic_03.png")
               .result-title 每月建議存入金額
               .result
-                .num 1,575,123
+                .num#rspResult 1,575,123
                 .unit 元
 
     section.section05
@@ -521,12 +521,18 @@ block body
           .arrow-icon.right-arrow#productRightArrow
             include ../images/icons/arrow_r.pug
         
-    section.popup
+    section.popup#popup1
       .mask
       .container
         .close
         .title 所得替代率
         p.txt 指退休後平均每月可支配金額與未退休時每月薪資的比例。維持一定的所得替代率，則是退休後每月收入是否能維持生活水準之關鍵。當所得替代率越高，則退休後的生活水準也越高。
+    section.popup#popup2
+      .mask
+      .container
+        .close
+        .title 預期通膨率
+        p.txt xxxxxxxxxxxx
 
 
 
