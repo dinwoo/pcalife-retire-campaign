@@ -348,4 +348,58 @@ $(document).ready(function () {
   $(".close,.mask").on("click", function () {
     $(this).closest(".popup").fadeOut();
   });
+
+  $("#sendBtn").on("click", () => {
+    if (!$("#name").val()) {
+      alert("請填寫姓名");
+      return;
+    } else if (!$("#phone").val()) {
+      alert("請填寫電話");
+      return;
+    } else if ($("input[name='isPcalife']:checked").val() == undefined) {
+      alert("請確認是否已經是保誠保戶");
+      return;
+    } else if (
+      $("input[name='isPcalife']:checked").val() == "1" &&
+      !$("#identityNumber").val()
+    ) {
+      alert("請輸入身分證字號");
+      return;
+    } else if (!$("#personalInformation").is(":checked")) {
+      alert("請閱讀並同意個人資料告知暨同意事項");
+      return;
+    } else if (!$("#checkBtn").is(":checked")) {
+      alert("請確認以上資料正確無誤");
+      return;
+    }
+    $.ajax({
+      url: "api/postForm",
+      type: "post",
+      data: {
+        name: $("#name").val(),
+        phone: $("#phone").val(),
+        isPcalife: $("input[name='isPcalife']:checked").val(),
+        identityNumber: $("#identityNumber").val(),
+        currentAge,
+        retireAge,
+        lifeSpan,
+        totalAssets,
+        salary,
+        incomeReplacementRatio,
+        inflation,
+        totalInvest,
+        requiredAmount: calcRequiredAmount(),
+        shortage: calcShortage(),
+        rspResult: calcPMT(),
+      },
+      success: function (res) {
+        console.log(res);
+        alert("成功送出資料");
+      },
+      error: function (err) {
+        console.log(err);
+        alert("送出失敗");
+      },
+    });
+  });
 });

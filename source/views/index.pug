@@ -447,34 +447,34 @@ block body
             .row-label
               p 姓 名
             .row-content
-              input(type="text")
+              input#name(type="text")
           .row
             .row-label
               p 手機號碼/家用電話
             .row-content
-              input(type="phone")
+              input#phone(type="phone")
           .row
             .row-label
               p 是否已經是保誠保戶?
             .radio-box
               label
-                input(type="radio")
+                input(type="radio",name="isPcalife",value="1")
                 p 是
               label
-                input(type="radio")
+                input(type="radio",name="isPcalife",value="0")
                 p 否
             .row-content
-              input(type="text")
+              input#identityNumber(type="text", placeholder="請輸入身分證字號")
           .row.align-center
-            input(type="checkbox")
+            input#personalInformation(type="checkbox")
             p.txt
               | 我已閱讀並同意
               a(href="") 個人資料告知暨同意事項
           .row.align-center
-            input(type="checkbox")
+            input#checkBtn(type="checkbox")
             p.txt
               | 我已確認以上資料正確無誤
-          .btn 送出
+          .btn#sendBtn 送出
     section.section06
       .wrapper
         figure.title
