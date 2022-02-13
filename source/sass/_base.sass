@@ -30,20 +30,21 @@
     display: block
     clear: both
 
-// =keyframes($name)
-// 	@-webkit-keyframes #{$name}
-// 		@content
-// 	@-moz-keyframes #{$name}
-// 		@content
-// 	@-ms-keyframes #{$name}
-// 		@content
-// 	@keyframes #{$name}
-// 		@content 
-// =animation($content)
-// 	-webkit-animation: $content
-// 	-moz-animation: $content
-// 	-o-animation: $content
-// 	animation: $content
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+    
+=animation($content)
+  -webkit-animation: $content
+  -moz-animation: $content
+  -o-animation: $content
+  animation: $content
 
 =before($txt:'')
   &:before

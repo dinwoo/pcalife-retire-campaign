@@ -3,6 +3,38 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap')
 
++keyframes(swing)
+  0%
+    transform: rotate(5deg)
+  100%
+    transform: rotate(-5deg)
+
++keyframes(shine)
+  0%
+    opacity: .1
+  100%
+    opacity: 1
+
++keyframes(cloud)
+  0%
+    opacity: .7
+    transform: translateX(-30%)
+  100%
+    opacity: 1
+    transform: translateX(30%)
+
++keyframes(noonBoat)
+  0%
+    left: -40%
+  100%
+    left: 105%
+
++keyframes(boat)
+  0%
+    left: 105%
+  100%
+    left: -30%
+
 *
   padding: 0
   margin: 0
@@ -109,7 +141,7 @@ html
     section.banner
       position: relative
       .indoor
-        // opacity: .2
+        // opacity: 0
         position: relative
         z-index: 2
         figure
@@ -153,6 +185,8 @@ html
             width: 24.878048%
             left: 0
             bottom: 16.16%
+            transform-origin: right bottom
+            animation: swing 1s linear infinite alternate
       .outdoor
         width: 29.6875%
         position: absolute
@@ -160,19 +194,20 @@ html
         left: 35.2%
         z-index: 1
         .noon
-          position: relative
           display: none
+          position: relative
           figure.outdoor-bg
           figure.boat
             width: 35%
             position: absolute
             bottom: -4%
-            left: 10%
+            animation: noonBoat 8s linear infinite
           figure.cloud
             width: 8%
             position: absolute
             top: 4%
             left: 60%
+            animation: cloud 3s linear infinite alternate
         .morning
           display: none
           position: relative
@@ -180,35 +215,40 @@ html
           figure.red-boat
             width: 25%
             position: absolute
-            bottom: 2%
-            left: 36%
+            bottom: 0%
+            animation: boat 10s -2s linear infinite
           figure.blue-boat
             width: 23%
             position: absolute
-            bottom: 3%
-            left: 60%
+            bottom: 1%
+            animation: boat 12s linear infinite
           figure.cloud1
             width: 10%
             position: absolute
             top: 10%
             left: 30%
+            animation: cloud 3s linear infinite alternate
           figure.cloud2
             width: 8%
             position: absolute
             top: 4%
             left: 60%
+            animation: cloud 5s linear infinite alternate
         .night
+          // display: none
           figure.outdoor-bg
           figure.moon
             width: 21%
             position: absolute
             top: 15%
             left: 71%
+            animation: shine 5s linear infinite alternate
           figure.star
             width: 100%
             position: absolute
             top: 0%
             left: 0%
+            animation: shine 1s linear infinite alternate
       +rwd(768px)
         .indoor
           figure.kv
