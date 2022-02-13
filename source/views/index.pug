@@ -8,6 +8,53 @@ extend ../Layout.pug
 
 block body
   article
+    section.banner
+      .indoor
+        figure.kv
+          img(src="./images/banner_KV_d.png")
+          img(src="./images/banner_KV_m.png")
+        figure.banner_title
+          img(src="./images/banner_title.png")
+        figure.banner_slogan_d
+          img(src="./images/banner_slogan_d.png")
+          img(src="./images/banner_slogan_m.png")
+        figure.dadnmom
+          img(src="./images/dadnmom.png")
+        figure.papamama
+          img(src="./images/papamama.png")
+        .dog-box
+          figure.dog
+            img(src="./images/dog.png")
+          figure.swing
+            img(src="./images/swing.png")
+      .outdoor
+        .noon
+          figure.outdoor-bg
+            img(src="./images/mid.png")
+          figure.boat
+            img(src="./images/boat.png")
+          figure.cloud
+            img(src="./images/cloud_b.png")
+        .morning
+          figure.outdoor-bg
+            img(src="./images/moring.png")
+          figure.blue-boat
+            img(src="./images/blue_boat.png")
+          figure.red-boat
+            img(src="./images/red_boat.png")
+          figure.cloud.cloud1
+            img(src="./images/cloud_w.png")
+          figure.cloud.cloud2
+            img(src="./images/cloud_w.png")
+        .night
+          figure.outdoor-bg
+            img(src="./images/night.png")
+          figure.moon
+            img(src="./images/moon.png")
+          figure.star
+            img(src="./images/star.png")
+
+          
     section.section01
       .wrapper
         figure.title
@@ -243,11 +290,12 @@ block body
                   img(src="./images/section02_pic_06.png")
         .nav-bar
           .arrow-icon.left-arrow#infoLeftArrow
-            include ../images/icons/arrow.pug
+            include ../images/icons/arrow_l.pug
           .now.num#infoNowPage
-          .page.num / 04
+          .page / 
+          .num 04
           .arrow-icon.right-arrow#infoRightArrow
-            include ../images/icons/arrow.pug
+            include ../images/icons/arrow_r.pug
     section.section03
       .wrapper
         figure.title
@@ -292,19 +340,75 @@ block body
           .remind 請移動下方橘點，輸入目前的財務狀態，讓我們為您計算出您的理想生活進度
           .box
             .row
-              .row-title 目前年紀
+              .row-title
+                span.txt 目前年紀
               .row-progress
-                #test
+                #progressbar1
               .row-unit
-                input#amount.num(type="text")
+                input#amount1.num(type="number",value="35",min="18",max="74")
                 p.txt 歲
             .row
-              .row-title 目前年紀
+              .row-title
+                span.txt 期望退休年紀
               .row-progress
-                #test2
+                #progressbar2
               .row-unit
-                input#amount2.num(type="text")
+                input#amount2.num(type="number",value="65",min="50",max="75")
                 p.txt 歲
+            .row
+              .row-title
+                span.txt 期望壽命
+              .row-progress
+                #progressbar3
+              .row-unit
+                input#amount3.num(type="number",value="75",min="66",max="99")
+                p.txt 歲
+            .row
+              .row-title
+                span.txt 目前存款餘額+目前投資金額
+              .row-progress
+                #progressbar4
+              .row-unit
+                input#amount4.num(type="number",value="50",min="0",max="3000")
+                p.txt 萬
+            .row
+              .row-title
+                span.txt 目前每月收入
+              .row-progress
+                #progressbar5
+              .row-unit
+                input#amount5.num(type="number",value="4.6",min="2.3",max="30")
+                p.txt 萬
+            .row
+              .row-title
+                span.txt
+                  | 期望所得替代率
+                  figure.question
+                    img(src="./images/question.png")
+              .row-progress
+                #progressbar6
+              .row-unit
+                input#amount6.num(type="number",value="70",min="10",max="100")
+                p.txt ％
+            .row
+              .row-title
+                span.txt
+                  | 預期通膨率
+                  figure.question
+                    img(src="./images/question.png")
+              .row-progress
+                #progressbar7
+              .row-unit
+                input#amount7.num(type="number",value="5",min="0",max="5")
+                p.txt ％
+            .row
+              .row-title
+                span.txt 預期平均每年投資報酬率
+              .row-progress
+                #progressbar8
+              .row-unit
+                input#amount8.num(type="number",value="2",min="0",max="10")
+                p.txt ％
           .result-box
             .result-item
               figure.pic
@@ -409,10 +513,13 @@ block body
             figure.pic
               img(src="./images/section06_pic_07.png")
         .nav-bar
-          p#productLeftArrow <
+          .arrow-icon.left-arrow#productLeftArrow
+            include ../images/icons/arrow_l.pug
           .now.num#productNowPage
-          .page.num / 07
-          p#productRightArrow >
+          .page / 
+          .num 07
+          .arrow-icon.right-arrow#productRightArrow
+            include ../images/icons/arrow_r.pug
         
     section.popup
       .mask

@@ -8,6 +8,16 @@
   margin: 0
   font-family: 'Noto Sans TC', sans-serif
 
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button
+  -webkit-appearance: none
+  margin: 0
+
+/* Firefox */
+input[type="number"]
+  -moz-appearance: textfield
+
 img
   width: 100%
   vertical-align: top
@@ -18,12 +28,16 @@ header
   box-sizing: border-box
   figure.logo
     width: 145px
+  +rwd(768px)
+    padding: 10px 15px
 
 footer
   width: 100%
   height: 30px
   background-image: url(../images/bg02.png)
-  background-size: 1920px
+  background-size: 653px
+  +rwd(768px)
+    background-size: 400px
 
 .num
   font-family: 'Lato','Noto Sans TC', sans-serif
@@ -61,24 +75,188 @@ footer
       box-shadow: 1px 1px 2px rgba(#a7a6a6,.2)
 
 .nav-bar
-  text-align: center
+  display: flex
+  align-items: center
+  justify-content: center
   .arrow-icon
-    width: 200px
+    width: 40px
+    padding: 10px 10px 0
     fill: #9e9c9c
     cursor: pointer
     transition: .3s
-    +dib
-    &.left-arrow
-      transform: rotate(180deg)
   .now
-    padding: 0 5px
-    +dib
+    font-size: 1.7rem
   .page
-    +dib
+    font-size: 0.8rem
+    padding: 0 10px
+  .num
+    padding: 0 5px
+    font-size: 1.7rem
+  +rwd(768px)
+    .arrow-icon
+      width: 26px
+      padding: 5px 10px 0
+    .now
+      font-size: 1.2rem
+    .page
+      font-size: 0.6rem
+    .num
+      font-size: 1.2rem
 
 html
   font-size: 20px
   article
+    section.banner
+      position: relative
+      .indoor
+        // opacity: .2
+        position: relative
+        z-index: 2
+        figure
+          position: absolute
+        figure.kv
+          width: 100%
+          position: static
+          img
+            &:nth-child(2)
+              display: none
+        figure.banner_title
+          width: 47.083333%
+          top: 2.329749%
+          left: 27.34375%
+        figure.banner_slogan_d
+          width: 27.8125%
+          top: 62.724014%
+          left: 36.614583%
+          img
+            &:nth-child(2)
+              display: none
+        figure.dadnmom
+          width: 32.552083%
+          top: 35.842293%
+          left: 4.791667%
+        figure.papamama
+          width: 18.177083%
+          top: 35.842293%
+          right: 15.833333%
+        .dog-box
+          width: 10.677083%
+          padding-bottom: 10.3125%
+          position: absolute
+          top: 75.896057%
+          left: 48.958333%
+          figure.dog
+            width: 88.292682%
+            top: 0
+            right: 0
+          figure.swing
+            width: 24.878048%
+            left: 0
+            bottom: 16.16%
+      .outdoor
+        width: 29.6875%
+        position: absolute
+        top: 21.5%
+        left: 35.2%
+        z-index: 1
+        .noon
+          position: relative
+          display: none
+          figure.outdoor-bg
+          figure.boat
+            width: 35%
+            position: absolute
+            bottom: -4%
+            left: 10%
+          figure.cloud
+            width: 8%
+            position: absolute
+            top: 4%
+            left: 60%
+        .morning
+          display: none
+          position: relative
+          figure.outdoor-bg
+          figure.red-boat
+            width: 25%
+            position: absolute
+            bottom: 2%
+            left: 36%
+          figure.blue-boat
+            width: 23%
+            position: absolute
+            bottom: 3%
+            left: 60%
+          figure.cloud1
+            width: 10%
+            position: absolute
+            top: 10%
+            left: 30%
+          figure.cloud2
+            width: 8%
+            position: absolute
+            top: 4%
+            left: 60%
+        .night
+          figure.outdoor-bg
+          figure.moon
+            width: 21%
+            position: absolute
+            top: 15%
+            left: 71%
+          figure.star
+            width: 100%
+            position: absolute
+            top: 0%
+            left: 0%
+      +rwd(768px)
+        .indoor
+          figure.kv
+            img
+              &:nth-child(1)
+                display: none
+              &:nth-child(2)
+                display: block
+          figure.banner_title
+            width: 86.588541%
+            top: 2.835538%
+            left: 6.510417%
+          figure.banner_slogan_d
+            width: 60.546875%
+            top: 46.124763%
+            left: 18.229167%
+            img
+              &:nth-child(1)
+                display: none
+              &:nth-child(2)
+                display: block
+          figure.dadnmom
+            width: 52.083333%
+            top: 55%
+            left: 3.90625%
+          figure.papamama
+            width: 28%
+            top: 56%
+            right: 6%
+          .dog-box
+            width: 13.671875%
+            padding-bottom: 13.2%
+            top: 90%
+            left: 52.0833333%
+            figure.dog
+              width: 88.292682%
+              top: 0
+              right: 0
+            figure.swing
+              width: 24.878048%
+              left: 0
+              bottom: 16.16%
+        .outdoor
+          width: 50%
+          position: absolute
+          top: 18.4%
+          left: 25.2%
+
     section.section01
       background-color: $yellow01
       .wrapper
@@ -611,8 +789,16 @@ html
                     top: 68%
                     right: 3%
 
+        .nav-bar
+          .arrow-icon
+            +hover
+              fill: $orange04
+          .now
+            color: $orange04
+          .page,.num
+            color: $orange04
       +rwd(768px)
-        // padding: 160px 0
+        padding: 60px 0
         background-size: 20px
         .wrapper
           width: 100%
@@ -630,14 +816,6 @@ html
           .carousel-box
             .container
               border-radius: 0px
-        .nav-bar
-          .arrow-icon
-            +hover
-              fill: $orange04
-          .now
-            color: $orange04
-          .page
-            color: $orange04
 
     section.section03
       background-color: $red02
@@ -888,8 +1066,19 @@ html
               align-items: center
               .row-title
                 width: 355px
-                font-size: 1.3rem
-                color: #584e4e
+                .txt
+                  font-size: 1.3rem
+                  display: inline-block
+                  color: #584e4e
+                  position: relative
+                  figure.question
+                    width: 30px
+                    padding-top: 7px
+                    position: absolute
+                    top: 50%
+                    right: 0
+                    transform: translate(110%,-50%)
+                    cursor: pointer
               .row-progress
                 flex: 1
               .row-unit
@@ -1091,7 +1280,7 @@ html
       width: 100%
       padding: 15px 0
       background-image: url(../images/bg02.png)
-      background-size: 1920px
+      background-size: 653px
       .wrapper
         max-width: 1200px
         width: 95%
@@ -1170,7 +1359,7 @@ html
               background-color: #f27777
       +rwd(768px)
         // padding: 15px 0
-        // background-size: 1920px
+        background-size: 400px
         .wrapper
           figure.title
           .form-box
@@ -1255,12 +1444,15 @@ html
               width: 100%
               margin: 10px 0
         .nav-bar
+          display: none
+          +rwd(768px)
+            display: flex
           .arrow-icon
             +hover
               fill: $green02
           .now
             color: $green02
-          .page
+          .page,.num
             color: $green02
 
     section.popup

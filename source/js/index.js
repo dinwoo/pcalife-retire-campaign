@@ -67,12 +67,19 @@ function setSlider(slideEl, inputEl, min = 0, max = 100, v = 0, s = 1) {
 $(document).ready(function () {
   checkWid($(window).width());
 
-  setSlider($("#test"), $("#amount"));
-  setSlider($("#test2"), $("#amount2"), 200, 500, 300, 10);
+  setSlider($("#progressbar1"), $("#amount1"), 18, 74, 35, 1);
+  setSlider($("#progressbar2"), $("#amount2"), 50, 75, 65, 1);
+  setSlider($("#progressbar3"), $("#amount3"), 66, 99, 75, 1);
+  setSlider($("#progressbar4"), $("#amount4"), 0, 3000, 50, 0.1);
+  setSlider($("#progressbar5"), $("#amount5"), 2.3, 30, 4.6, 0.1);
+  setSlider($("#progressbar6"), $("#amount6"), 10, 100, 70, 1);
+  setSlider($("#progressbar7"), $("#amount7"), 0, 5, 5, 1);
+  setSlider($("#progressbar8"), $("#amount8"), 0, 10, 2, 1);
 
   $("#carouselBox01").owlCarousel({
     nav: false,
     dots: true,
+    autoplay: true,
     responsive: {
       0: {
         loop: true,
