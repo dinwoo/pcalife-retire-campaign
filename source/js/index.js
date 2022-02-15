@@ -1,5 +1,7 @@
 let isMobile = $(window).width() > 768;
 let controller = new ScrollMagic.Controller();
+let nowHour = new Date().getHours();
+let outdoorIndex = 0;
 
 //-- range slider part
 let rangeInput = document.querySelectorAll(".amount-input");
@@ -544,6 +546,21 @@ $(document).ready(function () {
   checkWid($(window).width());
   setCarousel();
   setAnimate();
+  if (nowHour >= 6 && nowHour < 14) {
+    outdoorIndex = 0;
+    $("#morning").show();
+  } else if (nowHour >= 14 && nowHour < 19) {
+    outdoorIndex = 1;
+    $("#noon").show();
+  } else {
+    outdoorIndex = 2;
+    $("#night").show();
+  }
+  $(".dog-box").on("click", () => {
+    outdoorIndex = (outdoorIndex + 4) % 3;
+    $(`.outdoor div`).hide();
+    $(`.outdoor div:nth-child(${outdoorIndex + 1})`).show();
+  });
 
   setSlider("currentAge", 18, 74, 35, 1, (val) => {
     $(`#amount-currentAge`).val(val);
