@@ -35,6 +35,12 @@
   100%
     left: -30%
 
++keyframes(beat)
+  0%
+    transform: scale(95%)
+  100%
+    transform: scale(100%)
+
 *
   padding: 0
   margin: 0
@@ -164,6 +170,7 @@ html
           top: 62.724014%
           left: 36.614583%
           img
+            animation: beat 0.8s infinite alternate
             &:nth-child(2)
               display: none
         figure.dadnmom
@@ -220,11 +227,15 @@ html
             position: absolute
             bottom: 0%
             animation: boat 10s -2s linear infinite
+            // +rwd(768px)
+            //   bottom: -11%
           figure.blue-boat
             width: 23%
             position: absolute
             bottom: 1%
             animation: boat 12s linear infinite
+            // +rwd(768px)
+            //   bottom: -10%
           figure.cloud1
             width: 10%
             position: absolute
@@ -492,6 +503,7 @@ html
               flex-wrap: wrap
               .item
                 margin: 60px 0
+                font-size: 0
                 .left
                   text-align: center
                   +dib
@@ -1016,7 +1028,8 @@ html
               display: block
               width: 20px
               margin: auto
-              transform: rotate(90deg)
+              img
+                transform: rotate(90deg)
             .box
               width: 90%
               margin: 1rem auto
@@ -1384,6 +1397,7 @@ html
                 padding: 0 1rem
                 line-height: 3.4rem
                 border-radius: 1.7rem
+                font-size: 1.4rem
                 border: 1px solid #d4d1d1
                 box-sizing: border-box
             input[type="checkbox"]
@@ -1443,6 +1457,7 @@ html
                 input[type="text"],input[type="phone"]
                   line-height: 2rem
                   border-radius: 1rem
+                  font-size: 1rem
               input[type="checkbox"]
                 width: 20px
               p.txt
