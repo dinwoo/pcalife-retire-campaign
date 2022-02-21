@@ -60,7 +60,7 @@ gulp.task("pug", function () {
     .pipe($.plumber())
     .pipe(
       $.pug({
-        pretty: false,
+        pretty: true,
       })
     )
     .pipe(

@@ -183,6 +183,16 @@ $(window).resize(function () {
   checkWid(windowSize);
 });
 
+function verifyPhone(phone) {
+  const phoneRules = /^09\d{8}$/;
+  return phoneRules.test(phone);
+}
+
+function verifyId(id) {
+  const idRules = /^[A-Z]{1}[1-2]{1}[0-9]{8}$/;
+  return idRules.test(id);
+}
+
 function checkWid(windowSize) {
   if (windowSize < 768 && !isMobile) {
     isMobile = true;
@@ -610,20 +620,21 @@ $(document).ready(function () {
   });
 
   $("#sendBtn").on("click", () => {
+    console.log(verifyPhone($("#phone").val()));
     if (!$("#name").val()) {
       alert("請填寫姓名");
       return;
-    } else if (!$("#phone").val()) {
-      alert("請填寫電話");
+    } else if (!$("#phone").val() || !verifyPhone($("#phone").val())) {
+      alert("請填寫電話及確認格式正確");
       return;
     } else if ($("input[name='isPcalife']:checked").val() == undefined) {
       alert("請確認是否已經是保誠保戶");
       return;
     } else if (
       $("input[name='isPcalife']:checked").val() == "1" &&
-      !$("#identityNumber").val()
+      (!$("#identityNumber").val() || !verifyId($("#identityNumber").val()))
     ) {
-      alert("請輸入身分證字號");
+      alert("請輸入身分證字號及確認格式正確");
       return;
     } else if (!$("#personalInformation").is(":checked")) {
       alert("請閱讀並同意個人資料告知暨同意事項");

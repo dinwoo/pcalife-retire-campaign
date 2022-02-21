@@ -452,7 +452,7 @@ block body
             .row-label
               p 手機號碼/家用電話
             .row-content
-              input#phone(type="phone")
+              input#phone(type="phone" maxLength="10")
           .row
             .row-label
               p 是否已經是保誠保戶?
@@ -464,7 +464,7 @@ block body
                 input(type="radio",name="isPcalife",value="0")
                 p 否
             .row-content
-              input#identityNumber(type="text", placeholder="請輸入身分證字號")
+              input#identityNumber(type="text", placeholder="請輸入身分證字號" maxLength="10")
           .row.align-center
             input#personalInformation(type="checkbox")
             p.txt
