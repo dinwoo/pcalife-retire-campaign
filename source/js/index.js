@@ -615,12 +615,18 @@ $(document).ready(function () {
   $("#popupHandler2").on("click", () => {
     $("#popup2").fadeIn();
   });
+  $("#privacyBtn").on("click", function () {
+    $("#privacyPopup").fadeIn();
+  });
   $(".close,.mask").on("click", function () {
     $(this).closest(".popup").fadeOut();
   });
+  $("#privacyPopup .btn").on("click", function () {
+    $(this).closest(".popup").fadeOut();
+    $("#personalInformation").prop("checked", true);
+  });
 
   $("#sendBtn").on("click", () => {
-    console.log(verifyPhone($("#phone").val()));
     if (!$("#name").val()) {
       alert("請填寫姓名");
       return;

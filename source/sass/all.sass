@@ -1403,8 +1403,10 @@ html
             input[type="checkbox"]
               width: 38px
             p.txt
-              a
+              span
                 color: #e85549
+                text-decoration: underline
+                cursor: pointer
             &.align-center
               align-items: center
           .btn
@@ -1556,7 +1558,7 @@ html
       .container
         max-width: 1200px
         width: 90%
-        padding: 150px 100px
+        padding: 100px
         border-radius: 40px
         background-color: #fff
         box-sizing: border-box
@@ -1588,6 +1590,35 @@ html
           font-size: 1.1rem
           line-height: 1.5
           color: #5e5a5a
+        .content
+          max-height: calc(90vh - 350px)
+          overflow-y: auto
+        p.remind
+          font-size: 0.8rem
+          margin-bottom: 1rem
+        .sub-title
+          margin-bottom: 1rem
+          font-size: 1rem
+        ol
+          margin-bottom: 1rem
+          padding-left: 1.2rem
+          li
+            font-size: 0.8rem
+        .btn
+          width: 130px
+          margin: 1rem auto 0
+          font-size: 1.2rem
+          line-height: 46px
+          color: #f27777
+          border: 2px solid #f27777
+          background-color: #f7e0e0
+          border-radius: 25px
+          text-align: center
+          cursor: pointer
+          transition: .3s
+          +hover
+            color: #fff
+            background-color: #f27777
       +rwd(768px)
         .mask
         .container
@@ -1604,3 +1635,23 @@ html
             font-size: 1.2rem
           p.txt
             font-size: 1rem
+          .content
+            max-height: calc(90vh - 235px)
+          p.remind
+            font-size: 0.7rem
+            margin-bottom: 0.5rem
+          .sub-title
+            margin-bottom: 0.5rem
+            font-size: 0.8rem
+          ol
+            margin-bottom: 0.5rem
+            padding-left: 1rem
+            li
+              font-size: 0.7rem
+          .btn
+            width: 120px
+            font-size: 1rem
+            line-height: 36px
+            border-radius: 20px
+
+  
