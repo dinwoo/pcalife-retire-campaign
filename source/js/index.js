@@ -351,6 +351,7 @@ function setSlider(
     if ($(this).val() * 1 > $(this).attr("max") * 1) {
       $(this).val($(this).attr("max"));
     }
+    $(this).val(Math.floor($(this).val() * 10) / 10);
     $(`#progress-${progressName}`).slider("value", $(this).val());
     setVariable($(this).val());
     calcValForRangeSlider($(this).val(), progressName);
