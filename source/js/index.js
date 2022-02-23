@@ -183,13 +183,13 @@ $(window).resize(function () {
   checkWid(windowSize);
 });
 
-function verifyPhone(phone) {
-  const phoneRules = /^09\d{8}$/;
-  return phoneRules.test(phone);
+function verifyNumber(number) {
+  const numberRules = /^[0-9]*$/;
+  return numberRules.test(number);
 }
 
 function verifyId(id) {
-  const idRules = /^[A-Z]{1}[1-2]{1}[0-9]{8}$/;
+  const idRules = /^[A-Za-z]{1}[1-2]{1}[0-9]{8}$/;
   return idRules.test(id);
 }
 
@@ -306,6 +306,18 @@ function setCarousel() {
   });
 }
 
+function ValidateValue(textbox) {
+  var IllegalString =
+    "[`~!#$^&*()=|{}':;',\\[\\]<>/?~！#￥……&*（）——|{}【】‘；：”“'。，、？]‘'";
+  var textboxvalue = textbox.value;
+  var index = textboxvalue.length - 1;
+  var s = textbox.value.charAt(index);
+  if (IllegalString.indexOf(s) >= 0) {
+    s = textboxvalue.substring(0, index);
+    textbox.value = s;
+  }
+}
+
 function setSlider(
   progressName,
   min = 0,
@@ -329,7 +341,16 @@ function setSlider(
       calcPMT();
     },
   });
-  $(`#amount-${progressName}`).on("change", function () {
+  $(`#amount-${progressName}`).on("keyup", function () {
+    ValidateValue(this);
+  });
+  $(`#amount-${progressName}`).on("change", function (e) {
+    if ($(this).val() * 1 < $(this).attr("min") * 1) {
+      $(this).val($(this).attr("min"));
+    }
+    if ($(this).val() * 1 > $(this).attr("max") * 1) {
+      $(this).val($(this).attr("max"));
+    }
     $(`#progress-${progressName}`).slider("value", $(this).val());
     setVariable($(this).val());
     calcValForRangeSlider($(this).val(), progressName);
@@ -552,6 +573,15 @@ function doAnimate(tween, Scene, indicator) {
   );
 }
 
+function sweetAlertError(msg) {
+  Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: msg,
+  });
+  return false;
+}
+
 $(document).ready(function () {
   checkWid($(window).width());
   setCarousel();
@@ -628,29 +658,29 @@ $(document).ready(function () {
 
   $("#sendBtn").on("click", () => {
     if (!$("#name").val()) {
-      alert("請填寫姓名");
+      sweetAlertError("請填寫姓名");
       return;
-    } else if (!$("#phone").val() || !verifyPhone($("#phone").val())) {
-      alert("請填寫電話及確認格式正確");
+    } else if (!$("#phone").val() || !verifyNumber($("#phone").val())) {
+      sweetAlertError("請填寫電話及確認格式正確");
       return;
     } else if ($("input[name='isPcalife']:checked").val() == undefined) {
-      alert("請確認是否已經是保誠保戶");
+      sweetAlertError("請確認是否已經是保誠保戶");
       return;
     } else if (
       $("input[name='isPcalife']:checked").val() == "1" &&
       (!$("#identityNumber").val() || !verifyId($("#identityNumber").val()))
     ) {
-      alert("請輸入身分證字號及確認格式正確");
+      sweetAlertError("請輸入身分證字號及確認格式正確");
       return;
     } else if (!$("#personalInformation").is(":checked")) {
-      alert("請閱讀並同意個人資料告知暨同意事項");
+      sweetAlertError("請閱讀並同意個人資料告知暨同意事項");
       return;
     } else if (!$("#checkBtn").is(":checked")) {
-      alert("請確認以上資料正確無誤");
+      sweetAlertError("請確認以上資料正確無誤");
       return;
     }
     $.ajax({
-      url: "api/postForm",
+      url: "Home/Index",
       type: "post",
       data: {
         name: $("#name").val(),
@@ -669,13 +699,37 @@ $(document).ready(function () {
         shortage: calcShortage(),
         rspResult: calcPMT(),
       },
-      success: function (res) {
-        console.log(res);
-        alert("成功送出資料");
+      success: function (e) {
+        console.log(e);
+        if (e.code === 200) {
+          Swal.fire({
+            icon: "success",
+            title: "成功送出資料",
+          });
+          $("#name").val("");
+          $("#phone").val("");
+          $("#identityNumber").val("");
+          $("#personalInformation").prop("checked", false);
+          $("#checkBtn").prop("checked", false);
+        }
+        if (e.code === 500) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: e.msg,
+          });
+        }
+        if (e.code === 9999) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `送出失敗`,
+          });
+        }
       },
       error: function (err) {
         console.log(err);
-        alert("送出失敗");
+        sweetAlertError("送出失敗");
       },
     });
   });
