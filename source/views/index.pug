@@ -465,6 +465,12 @@ block body
                 p 否
             .row-content
               input#identityNumber(type="text", placeholder="請輸入身分證字號" maxLength="10" autocomplete="off")
+          .row
+            .row-label
+            .canvas-box
+              canvas(id="canvas")
+            .row-content
+              input(type="text" name="code" class="form-control")
           .row.align-center
             input#personalInformation(type="checkbox")
             p.txt
