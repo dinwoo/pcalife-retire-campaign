@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="text/html; charset=UTF-8; X-Content-Type-Options=nosniff" http-equiv="Content-Type">
     <title>保幸福誠享退</title>
     <link href="./css/owl.carousel.min.css" rel="stylesheet">
     <link href="./css/owl.theme.default.min.css" rel="stylesheet">
@@ -468,7 +469,7 @@
                 <p>姓 名</p>
               </div>
               <div class="row-content">
-                <input id="name" type="text">
+                <input id="name" type="text" autocomplete="off">
               </div>
             </div>
             <div class="row">
@@ -476,7 +477,7 @@
                 <p>手機號碼/家用電話</p>
               </div>
               <div class="row-content">
-                <input id="phone" type="phone" maxLength="10" placeholder="手機格式：0911222333 | 家電格式：0233334444">
+                <input id="phone" type="phone" maxLength="10" placeholder="手機格式：0911222333 | 家電格式：0233334444" autocomplete="off">
               </div>
             </div>
             <div class="row">
@@ -494,7 +495,16 @@
                 </label>
               </div>
               <div class="row-content">
-                <input id="identityNumber" type="text" placeholder="請輸入身分證字號" maxLength="10">
+                <input id="identityNumber" type="text" placeholder="請輸入身分證字號" maxLength="10" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <div class="row-label"></div>
+              <div class="canvas-box">
+                <canvas id="canvas"></canvas>
+              </div>
+              <div class="row-content">
+                <input class="form-control" type="text" name="code">
               </div>
             </div>
             <div class="row align-center">
@@ -648,6 +658,7 @@
     <script src="./js/jquery-ui.min.js"></script>
     <script src="./js/jquery.ui.touch-punch.min.js"></script>
     <script src="./js/sweetalert2.all.min.js"></script>
+    <script src="./js/jquery-captcha.min.js"></script>
     <script src="./js/all.js"></script>
   </body>
 </html>
