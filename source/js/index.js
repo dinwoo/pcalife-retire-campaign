@@ -585,14 +585,6 @@ function sweetAlertError(msg) {
 
 $(document).ready(function () {
   checkWid($(window).width());
-  const captcha = new Captcha($("#canvas"), {
-    length: 4,
-  });
-  $("#valid").on("click", function () {
-    const ans = captcha.valid($('input[name="code"]').val());
-    alert(ans);
-    captcha.refresh();
-  });
   setCarousel();
   setAnimate();
   if (nowHour >= 6 && nowHour < 14) {
@@ -666,7 +658,6 @@ $(document).ready(function () {
   });
 
   $("#sendBtn").on("click", () => {
-    const ans = captcha.valid($('input[name="code"]').val());
     if (!$("#name").val()) {
       sweetAlertError("請填寫姓名");
       return;
@@ -687,11 +678,6 @@ $(document).ready(function () {
       return;
     } else if (!$("#checkBtn").is(":checked")) {
       sweetAlertError("請確認以上資料正確無誤");
-      return;
-    } else if (!ans) {
-      sweetAlertError("驗證碼錯誤");
-      $('input[name="code"]').val("");
-      captcha.refresh();
       return;
     }
     $.ajax({
