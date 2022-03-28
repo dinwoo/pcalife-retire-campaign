@@ -734,4 +734,22 @@ $(document).ready(function () {
       },
     });
   });
+  const productLink = [
+    "https://www.pcalife.com.tw/zh/products/participating-insurance/foreign-currency-participating-insurance/",
+    "https://www.pcalife.com.tw/zh/products/participating-insurance/ntd-currency-participating-insurance/",
+    "https://www.pcalife.com.tw/zh/products/investment-linked-insurance/foreign-currency-investment-linked-insurance/",
+    "https://www.pcalife.com.tw/zh/products/investment-linked-insurance/ntd-currency-investment-linked-insurance/",
+    "https://www.pcalife.com.tw/zh/products/non-participating-insurance/",
+    "https://www.pcalife.com.tw/zh/products/health-life-accident/health-insurance/",
+    "https://www.pcalife.com.tw/zh/products/health-life-accident/life-accident-insurance/",
+  ];
+  $("#product-carousel .item .txt").css("cursor", "pointer");
+  for (let i = 0; i < $("#product-carousel .item").length; i++) {
+    $("#product-carousel .item")
+      .eq(i)
+      .find(".txt")
+      .on("click", function () {
+        window.open(productLink[i], "_blank");
+      });
+  }
 });
